@@ -40,7 +40,7 @@ let AppRoutes=[
     },
     {
         path:'*',
-        Element:<Navigate to='/'/>,
+        Element:<Navigate to="/"/>,
         exact:false
     },
 ]

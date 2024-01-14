@@ -1,9 +1,9 @@
 import Topbar from '../Topbar'
 import React,{useState,useEffect} from 'react'
-import { Form } from 'react-bootstrap/Form';
+import { Form } from 'react-bootstrap';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import { Container } from 'react-bootstrap/Container';
+import { Container } from 'react-bootstrap';
 import ApiService from '../utils/ApiService';
 import { useNavigate,useParams } from 'react-router-dom';
 import { useFormik } from 'formik';

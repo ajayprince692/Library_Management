@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Topbar from "../Topbar";
-import { Form } from "react-bootstrap/Form";
-import { Button } from "react-bootstrap/Button";
+import { Form } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
-import { Container } from "react-bootstrap/Container";
+import {Container} from "react-bootstrap";
 import ApiService from "../utils/ApiService";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
