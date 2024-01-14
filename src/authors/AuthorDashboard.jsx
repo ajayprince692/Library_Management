@@ -1,7 +1,7 @@
 import React,  { useState,useEffect }  from 'react'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Topbar from '../common/Topbar'
+import Topbar from '../Topbar'
 import { useNavigate } from 'react-router-dom';
 import ApiService from '../utils/ApiService';
 import Button from 'react-bootstrap/Button';
@@ -18,7 +18,7 @@ function DashboardAuthor() {
 
   const getAuthorData = async() => {
     try {
-      let res = await ApiService.get('/Formix')
+      let res = await ApiService.get('')
       if(res.status === 200){
         setAuthorData(res.data)
       }
@@ -29,7 +29,7 @@ function DashboardAuthor() {
 
   const handleDelete = async(id) => {
     try {
-      let res = await ApiService.delete(`/Formix/${id}`)
+      let res = await ApiService.delete(`/${id}`)
       if(res.status === 200){
         getAuthorData();
       }

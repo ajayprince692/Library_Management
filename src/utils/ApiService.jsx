@@ -1,5 +1,5 @@
 import axios from "axios";
-let API_URL = "https://659935c9a20d3dc41cef6114.mockapi.io"
+let API_URL = "https://65981fb3668d248edf2428f7.mockapi.io/api/v2/Formix"
 
 
 let ApiService=axios.create({

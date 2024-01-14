@@ -1,9 +1,9 @@
-import Topbar from '../common/Topbar'
+import Topbar from '../Topbar'
 import React,{useState,useEffect} from 'react'
 import { Form } from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import { Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap/Container';
 import ApiService from '../utils/ApiService';
 import { useNavigate,useParams } from 'react-router-dom';
 import { useFormik } from 'formik';
@@ -37,7 +37,7 @@ function EditingAuthor(){
             let {id}=params;
             values.id=id;
             try{
-                let res=await ApiService.put(`/Formix/${id}`,values);
+                let res=await ApiService.put(`/${id}`,values);
                 if(res.status===200){
                     navigate("/authorDashboard");
                 }
@@ -51,7 +51,7 @@ function EditingAuthor(){
     let getAuthorById =async()=>{
         let{id}=params
         try{
-            let res=await ApiService.get(`/Formix/${id}`)
+            let res=await ApiService.get(`/${id}`)
             if(res.status===200){
                 console.log(res.data);
                 setValues({

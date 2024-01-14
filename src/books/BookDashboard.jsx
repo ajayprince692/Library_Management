@@ -1,8 +1,8 @@
 import React,{useState,useEffect} from 'react';
-import Container from 'react-bootstrap/Conatiner';
+import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Topbar from '../common/Topbar';
+import Topbar from '../Topbar';
 import { useNavigate } from 'react-router-dom';
 import ApiService from '../utils/ApiService';
 import Button from 'react-bootstrap/Button'
@@ -17,7 +17,7 @@ function BookDashboard(){
 
     let getBookData =async()=>{
         try{
-            let res=await ApiService.get('/Formix')
+            let res=await ApiService.get('')
             if (res.status===200){
                 setbookData(res.data);
             }
@@ -29,7 +29,7 @@ function BookDashboard(){
 
     let handleDelete=async (id)=>{
         try{
-            let res=await ApiService.delete(`/Formix/${id}`)
+            let res=await ApiService.delete(`/${id}`)
             if(res.status===200){
                 getBookData();
             }

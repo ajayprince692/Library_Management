@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Topbar from "..common/Topbar";
+import Topbar from "../Topbar";
 import Form from "react-bootstrap/form";
 import { Button } from "react-bootstrap/button";
 import Col from "react-bootstrap/Col";
-import { Container } from "react-bootstrap";
+import { Container } from "react-bootstrap/Container";
 import ApiService from "../utils/ApiService";
 import { useNavigate, useParams } from "react-router-dom";
 import { useFormik } from "formik";
@@ -50,7 +50,7 @@ function EditBook() {
       let { id } = params;
       values.id = id;
       try {
-        let res = await ApiService.put(`/Formix/${id}`, values);
+        let res = await ApiService.put(`/${id}`, values);
         if (res.status === 200) {
           navigate("/");
         }
@@ -63,7 +63,7 @@ function EditBook() {
 let getBookDataBYId = async () => {
   let { id } = params;
   try {
-    let res = await ApiService.get(`/Formix/${id}`);
+    let res = await ApiService.get(`/${id}`);
     if (res.status === 200) {
       console.log(res.data);
       setValues({
