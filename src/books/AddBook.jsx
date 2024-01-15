@@ -18,6 +18,7 @@ function AddBook() {
       Description: "",
       serialNo: "",
       authorname: "",
+      bio: "",
       Date: "",
     },
     validationSchema: Yup.object({
@@ -29,7 +30,7 @@ function AddBook() {
       Description: Yup.string()
         .max(400, "Description cannot exceed 400")
         .min(20, "Description cannot be smaller than 20")
-        .required("Provide the description"),
+        .required("Provide the Description"),
 
       serialNo: Yup.string()
         .matches(15, "Enter correct serial number")
@@ -40,7 +41,9 @@ function AddBook() {
         .min(2, "Name cannot be smaller than 3 letters")
         .required("Name cannot be empty"),
 
-      Date: Yup.string().required("Date cannot be empty"),
+      
+
+      // Date: Yup.string().required("Date cannot be empty"),
     }),
 
     onSubmit: async (values) => {
@@ -87,16 +90,16 @@ function AddBook() {
                 </Form.Label>
                 <Form.Control
                   type="text"
-                  id="description"
-                  name="description"
+                  id="Description"
+                  name="Description"
                   onChange={formik.handleChange}
-                  value={formik.values.description}
+                  value={formik.values.Description}
                   onBlur={formik.handleBlur}
                   placeholder="Enter Book Description"
                 />
-                {formik.touched.description && formik.errors.description ? (
+                {formik.touched.Description && formik.errors.Description ? (
                   <div style={{ color: "blue" }}>
-                    {formik.errors.description}
+                    {formik.errors.Description}
                   </div>
                 ) : null}
               </Form.Group>
@@ -156,7 +159,7 @@ function AddBook() {
                   onChange={formik.handleChange}
                   value={formik.values.Date}
                   onBlur={formik.Date}
-                  placeholder="Enter Book Description"
+                  placeholder="Enter Published Date"
                 />
                 {formik.touched.Date && formik.errors.Date ? (
                   <div style={{ color: "blue" }}>{formik.errors.Date}</div>

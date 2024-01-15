@@ -11,7 +11,7 @@ function Topbar(){
         <>
               <Navbar expand="md" className="bg-primary">
                 <Container fluid>
-                    <Navbar.Brand onClick={() => navigate('/')}><b>Public Library</b></Navbar.Brand>
+                    <Navbar.Brand onClick={() => navigate('/')} style={{textAlign:"center"}}><b>Public Library</b></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">

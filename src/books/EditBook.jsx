@@ -32,7 +32,7 @@ function EditBook() {
       Description: Yup.string()
         .max(400, "Description cannot exceed 400")
         .min(20, "Description cannot be smaller than 20")
-        .required("Provide the description"),
+        .required("Provide the Description"),
 
       serialNo: Yup.string()
         .matches(15, "Enter correct serial number")
@@ -117,15 +117,15 @@ return (
               </Form.Label>
               <Form.Control
                 type="text"
-                id="description"
-                name="description"
+                id="Description"
+                name="Description"
                 onChange={formik.handleChange}
-                value={formik.values.description}
+                value={formik.values.Description}
                 onBlur={formik.handleBlur}
                 placeholder="Enter Book Description"
               />
-              {formik.touched.description && formik.errors.description ? (
-                <div style={{ color: "blue" }}>{formik.errors.description}</div>
+              {formik.touched.Description && formik.errors.Description ? (
+                <div style={{ color: "blue" }}>{formik.errors.Description}</div>
               ) : null}
             </Form.Group>
           </Col>

@@ -50,7 +50,7 @@ function BookDashboard(){
               <strong>Title :</strong> {e.title}
             </Card.Title>
             <Card.Text>
-              <strong>Description :</strong> {e.description}
+              <strong>Description :</strong> {e.Description}
             </Card.Text>
             <Card.Text>
               <strong>Serial No :</strong> {e.serialNo}
@@ -63,7 +63,7 @@ function BookDashboard(){
             </Card.Text>
           </Card.Body>
           <Card.Footer className="text-right justify-content-end">
-            <Button variant='primary' onClick={() => navigate(`/edit-book/${e.id}`)}>
+            <Button variant='primary' onClick={() => navigate(`/editbook/${e.id}`)}>
               Edit
             </Button>
             &nbsp;
@@ -81,7 +81,7 @@ function BookDashboard(){
            <Topbar /><br/>
       <Container  style={{ backgroundColor: '#1E90FF' }}>
       <Container className="d-flex justify-content-center align-items-center flex-column" >
-        <Button className='mt-3' variant='success' onClick={() => navigate(`/add-book`)}>
+        <Button className='mt-3' variant='success' onClick={() => navigate(`/addBook`)}>
           Add Book
         </Button>
       </Container><br/>

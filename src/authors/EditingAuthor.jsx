@@ -27,7 +27,7 @@ function EditingAuthor(){
             .required("Enter the name"),
 
             bio:Yup.string()
-            .max(200,"Bio cannot excced 200letters"),
+            .max(200,"Bio cannot excced 200 letters"),
 
             dateOfBirth:Yup.string().required("Enter Birthdate")
             

@@ -10,37 +10,37 @@ import { Navigate } from 'react-router-dom'
 let AppRoutes=[
     {
         path:'/',
-        Element:<BookDashboard/>,
+        element:<BookDashboard/>,
         exact:true
     },
     {
         path:'/addBook',
-        Element:<AddBook/>,
+        element:<AddBook/>,
         exact:true
     },
     {
         path:'/editbook/:id',
-        Element:<EditBook/>,
+        element:<EditBook/>,
         exact:true
     },
     {
         path:'/authorDashboard',
-        Element:<AuthorDashboard/>,
+        element:<AuthorDashboard/>,
         exact:true
     },
     {
         path:'/addAuthor',
-        Element:<AddingAuthor/>,
+        element:<AddingAuthor/>,
         exact:true
     },
     {
         path:'/editAuthor/:id',
-        Element:<EditingAuthor/>,
+        element:<EditingAuthor/>,
         exact:true
     },
     {
         path:'*',
-        Element:<Navigate to="/"/>,
+        element:<Navigate to="/"/>,
         exact:false
     },
 ]

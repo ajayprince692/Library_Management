@@ -42,7 +42,7 @@ function DashboardAuthor() {
     <Topbar/>
     <Container>
     <Container className="d-flex justify-content-center align-items-center flex-column" >
-      <Button className='mt-3' variant='success' onClick={()=>navigate(`/add-author`)}>Add Author</Button>
+      <Button className='mt-3' variant='success' onClick={()=>navigate(`/addAuthor`)}>Add Author</Button>
     </Container>
       <Row className='d-flex justify-content-start flex-row'>
       <div className='mt-3'>
