@@ -39,42 +39,48 @@ function BookDashboard(){
         }
     };
 
-    let renderCards=()=>{
-        return bookData.map((e,i)=>{
-            <Col key={i} xs={12} md={4} className='mb-4'>
-        <Card style={{
-            boxShadow: 'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px',
-              }}>          
+    let renderCards = () => {
+      return bookData.map((e, i) => (
+        <Col key={i} xs={12} md={4} className='mb-4'>
+          <Card
+            style={{
+              border: '1px solid #ddd',
+              borderRadius: '8px',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+            }}
+          >
+            <Card.Img variant='top' src={e.imageURL} alt={e.title} style={{ maxHeight: '200px', objectFit: 'cover' }} />
             <Card.Body>
-            <Card.Title>
-              <strong>Title :</strong> {e.title}
-            </Card.Title>
-            <Card.Text>
-              <strong>Description :</strong> {e.Description}
-            </Card.Text>
-            <Card.Text>
-              <strong>Serial No :</strong> {e.serialNo}
-            </Card.Text>
-            <Card.Text>
-              <strong>Author Name :</strong> {e.authorname}
-            </Card.Text>
-            <Card.Text>
-              <strong>Written At :</strong> {e.Date}
-            </Card.Text>
-          </Card.Body>
-          <Card.Footer className="text-right justify-content-end">
-            <Button variant='primary' onClick={() => navigate(`/editbook/${e.id}`)}>
-              Edit
-            </Button>
-            &nbsp;
-            <Button variant='danger' onClick={() => handleDelete(e.id)}>
-              Delete
-            </Button>
-          </Card.Footer>
-        </Card>
-      </Col>
-        })
-    }
+              <Card.Title>{e.title}</Card.Title>
+              <Card.Text>{e.description}</Card.Text>
+              <Card.Text>
+                <strong>Serial No:</strong> {e.serialNo}
+              </Card.Text>
+              <Card.Text>
+                <strong>Author Name:</strong> {e.name}
+              </Card.Text>
+              <Card.Text>
+                <strong>Book name:</strong> {e.bookName}
+              </Card.Text>
+              <Card.Text>
+                <strong>Written At:</strong> {e.dateofBirth}
+              </Card.Text>
+            </Card.Body>
+            <Card.Footer className='text-right justify-content-end'>
+              <Button variant='primary' onClick={() => navigate(`/editbook/${e.id}`)}>
+                Edit
+              </Button>
+              &nbsp;
+              <Button variant='danger' onClick={() => handleDelete(e.id)}>
+                Delete
+              </Button>
+            </Card.Footer>
+          </Card>
+        </Col>
+      ));
+    };
+    
+    
 
     return(
         <>
