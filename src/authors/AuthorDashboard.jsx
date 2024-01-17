@@ -6,8 +6,11 @@ import { useNavigate } from 'react-router-dom';
 import ApiService from '../utils/ApiService';
 import Button from 'react-bootstrap/Button';
 import { Table } from 'react-bootstrap';
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card"
 
 function DashboardAuthor() {
+
   const [authorData, setAuthorData] = useState([]);
   const navigate = useNavigate();
 
@@ -22,7 +25,8 @@ function DashboardAuthor() {
         setAuthorData(res.data);
       }
     } catch (error) {
-      alert('Data fetch failed');
+      console.error('Data fetch failed', error);
+      // Handle error in a more user-friendly way, e.g., display an error message in the UI.
     }
   };
 
@@ -35,7 +39,8 @@ function DashboardAuthor() {
           getAuthorData();
         }
       } catch (error) {
-        alert('Data removal failed');
+        console.error('Data removal failed', error);
+        // Handle error in a more user-friendly way, e.g., display an error message in the UI.
       }
     }
   };
@@ -43,50 +48,36 @@ function DashboardAuthor() {
   return (
     <>
       <Topbar />
-      <Container>
-        <Container className="d-flex justify-content-center align-items-center flex-column">
-          <Button className='mt-3' variant='success' onClick={() => navigate(`/addAuthor`)}>
-            Add Author
-          </Button>
-        </Container>
-        <Row className='d-flex justify-content-start flex-row'>
-          <div className='mt-3'>
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>S.No</th>
-                  <th>Author's Name</th>
-                  <th>Author's Bio</th>
-                  <th>Book</th>
-                  <th>Author's BirthDate</th>
-                  
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {authorData.map((e, i) => (
-                  <React.Fragment key={e.id}>
-                    <tr>
-                      <td>{e.id}</td>
-                      <td>{e.name}</td>
-                      <td>{e.bio}</td>
-                      <td>{e.bookName}</td>
-                      <td>{e.dateofBirth}</td>
-                      <td>
-                        <Button variant='primary' onClick={() => navigate(`/editAuthor/${e.id}`)}>
-                          Edit
-                        </Button>
-                        &nbsp;
-                        <Button variant='danger' onClick={() => handleDelete(e.id)}>
-                          Delete
-                        </Button>
-                      </td>
-                    </tr>
-                  </React.Fragment>
-                ))}
-              </tbody>
-            </Table>
-          </div>
+      <Container className="my-4">
+        <Button className="mb-3" variant="outline-success" onClick={() => navigate(`/addAuthor`)}>
+          Add Author
+        </Button>
+        <Row>
+          {authorData.map((e) => (
+            <Col key={e.id} xs={12} md={6} lg={4} className="mb-4">
+              <Card>
+                <Card.Body>
+                  <Card.Title>{e.name}</Card.Title>
+                  <Card.Text><strong>Bio: </strong>{e.bio}</Card.Text>
+                  <Card.Text>
+                    <strong>Book:</strong> {e.bookName}
+                  </Card.Text>
+                  <Card.Text>
+                    <strong>Birth Date:</strong> {e.dateofBirth}
+                  </Card.Text>
+                </Card.Body>
+                <Card.Footer className="text-center">
+                  <Button variant="info" onClick={() => navigate(`/editAuthor/${e.id}`)}>
+                    Edit
+                  </Button>
+                  &nbsp;
+                  <Button variant="danger" onClick={() => handleDelete(e.id)}>
+                    Delete
+                  </Button>
+                </Card.Footer>
+              </Card>
+            </Col>
+          ))}
         </Row>
       </Container>
     </>
@@ -94,3 +85,5 @@ function DashboardAuthor() {
 }
 
 export default DashboardAuthor;
+
+
