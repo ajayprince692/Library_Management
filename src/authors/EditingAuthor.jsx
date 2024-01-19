@@ -92,7 +92,7 @@ function EditingAuthor(){
           <Col md={6}>
             <Form.Group className="mb-3">
               <Form.Label>Date of Birth</Form.Label>
-              <Form.Control type='date' id="date" name="date" onChange={formik.handleChange} value={formik.values.dateOfBirth} onBlur={formik.handleBlur} placeholder="Enter Author birthday"/>
+              <Form.Control type='dateOfBirth' id="dateOfBirth" name="date" onChange={formik.handleChange} value={formik.values.dateOfBirth} onBlur={formik.handleBlur} placeholder="Enter date"/>
               {formik.touched.date && formik.errors.date ? (<div style={{color: 'blue'}}>{formik.errors.dateOfBirth}</div>) : null}
             </Form.Group>
           </Col>

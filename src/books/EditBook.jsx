@@ -13,18 +13,18 @@ function EditBook() {
   let params = useParams;
   let navigate = useNavigate;
   let [initialValues, setValues] = useState({
-    title: "",
+    name: "",
     Description: "",
     serialNo: "",
     authorname: "",
     bio: "",
-    Date: "",
+    dateOfBirth: "",
   });
 
   let formik = useFormik({
     initialValues: initialValues,
     validationSchema: Yup.object({
-      title: Yup.string()
+      name: Yup.string()
         .max(25, "Title cannot exceed 25")
         .min(3, "title cannot be smaller than 3 letters")
         .required("Title has to be given"),
@@ -43,7 +43,7 @@ function EditBook() {
         .min(2, "Name cannot be smaller than 3 letters")
         .required("Name cannot be empty"),
 
-      Date: Yup.string().required("Date cannot be empty"),
+      dateOfBirth: Yup.string().required("Date cannot be empty"),
     }),
     enableReInitialize: true,
     onSubmit: async (values) => {
@@ -67,12 +67,12 @@ let getBookDataBYId = async () => {
     if (res.status === 200) {
       console.log(res.data);
       setValues({
-        title: res.data.title,
+        name: res.data.name,
         Description: res.data.Description,
         serialNo: res.data.serialNo,
         authorname: res.data.authorname,
         bio: res.data.bio,
-        Date: res.data.Date,
+        dateOfBirth: res.data.dateOfBirth,
       });
     }
   } catch (error) {
@@ -97,15 +97,15 @@ return (
               </Form.Label>
               <Form.Control
                 type="text"
-                id="title"
-                name="title"
+                id="name"
+                name="name"
                 onChange={formik.handleChange}
-                value={formik.values.title}
+                value={formik.values.name}
                 onBlur={formik.handleBlur}
                 placeholder="Enter Book Title"
               />
-              {formik.touched.title && formik.errors.title ? (
-                <div style={{ color: "blue" }}>{formik.errors.title}</div>
+              {formik.touched.name && formik.errors.name ? (
+                <div style={{ color: "blue" }}>{formik.errors.name}</div>
               ) : null}
             </Form.Group>
           </Col>
@@ -177,15 +177,15 @@ return (
               </Form.Label>
               <Form.Control
                 type="text"
-                id="Date"
-                name="date"
+                id="dateOfBirth"
+                name="dateOfBirth"
                 onChange={formik.handleChange}
-                value={formik.values.Date}
-                onBlur={formik.Date}
+                value={formik.values.dateOfBirth}
+                onBlur={formik.dateOfBirth}
                 placeholder="Enter Book Description"
               />
-              {formik.touched.Date && formik.errors.Date ? (
-                <div style={{ color: "blue" }}>{formik.errors.Date}</div>
+              {formik.touched.dateOfBirth && formik.errors.dateOfBirth ? (
+                <div style={{ color: "blue" }}>{formik.errors.dateOfBirth}</div>
               ) : null}
             </Form.Group>
           </Col>

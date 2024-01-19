@@ -14,7 +14,7 @@ function AddBook() {
 
   let formik = useFormik({
     initialValues: {
-      title: "",
+      name: "",
       Description: "",
       serialNo: "",
       authorname: "",
@@ -22,7 +22,7 @@ function AddBook() {
       Date: "",
     },
     validationSchema: Yup.object({
-      title: Yup.string()
+      name: Yup.string()
         .max(25, "Title cannot exceed 25")
         .min(3, "title cannot be smaller than 3 letters")
         .required("Title has to be given"),
@@ -33,7 +33,7 @@ function AddBook() {
         .required("Provide the Description"),
 
       serialNo: Yup.string()
-        .matches(15, "Enter correct serial number")
+        .max(15, "Enter correct serial number")
         .required("SerialNo cannot be empty"),
 
       authorname: Yup.string()
@@ -70,15 +70,15 @@ function AddBook() {
                 </Form.Label>
                 <Form.Control
                   type="text"
-                  id="title"
-                  name="title"
+                  id="name"
+                  name="name"
                   onChange={formik.handleChange}
-                  value={formik.values.title}
+                  value={formik.values.name}
                   onBlur={formik.handleBlur}
                   placeholder="Enter Book Title"
                 />
-                {formik.touched.title && formik.errors.title ? (
-                  <div style={{ color: "blue" }}>{formik.errors.title}</div>
+                {formik.touched.name && formik.errors.name ? (
+                  <div style={{ color: "blue" }}>{formik.errors.name}</div>
                 ) : null}
               </Form.Group>
             </Col>
@@ -147,18 +147,19 @@ function AddBook() {
               </Form.Group>
             </Col>
 
+           
             <Col md={6}>
               <Form.Group className="mb-3">
-                <Form.Label>
+                <Form.Label htmlFor="Date">
                   <b>Written at</b>
                 </Form.Label>
                 <Form.Control
                   type="text"
                   id="Date"
-                  name="date"
+                  name="Date"
                   onChange={formik.handleChange}
                   value={formik.values.Date}
-                  onBlur={formik.Date}
+                  onBlur={formik.handleBlur}
                   placeholder="Enter Published Date"
                 />
                 {formik.touched.Date && formik.errors.Date ? (

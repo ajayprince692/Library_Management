@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Topbar from "../Topbar";
 import {Form} from "react-bootstrap";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import ApiService from "../utils/ApiService";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -33,7 +34,8 @@ function AddingAuthor() {
     }),
     onSubmit:async(values)=>{
         try{
-            if(resizeBy.status===201){
+          let res=await ApiService.post('',values)
+            if(res.status===201){
                 navigate('/authorDashboard')
             }
         }
@@ -64,7 +66,7 @@ function AddingAuthor() {
           </Col>
           <Col md={6}>
             <Form.Group className="mb-3">
-              <Form.Label>Bio</Form.Label>
+              <Form.Label>Book name</Form.Label>
               <Form.Control as="textarea" id="bookName" name="bookName" onChange={formik.handleChange} value={formik.values.bookName} onBlur={formik.handleBlur} placeholder="Enter book name"/>
               {formik.touched.bookName && formik.errors.bookName ? (<div style={{color: 'blue'}}>{formik.errors.bio}</div>) : null}
             </Form.Group>
@@ -72,7 +74,7 @@ function AddingAuthor() {
           <Col md={6}>
             <Form.Group className="mb-3">
               <Form.Label>Date of Birth</Form.Label>
-              <Form.Control type='date' id="date" name="date" onChange={formik.handleChange} value={formik.values.dateofBirth} onBlur={formik.handleBlur} placeholder="Enter Birth date"/>
+              <Form.Control type='text' id="dateOfBirth" name="dateOfBirth" onChange={formik.handleChange} value={formik.values.dateofBirth} onBlur={formik.handleBlur} placeholder="Enter date"/>
               {formik.touched.dateofBirth && formik.errors.dateofBirth ? (<div style={{color: 'blue'}}>{formik.errors.dateofBirth}</div>) : null}
             </Form.Group>
           </Col>

@@ -26,7 +26,7 @@ function DashboardAuthor() {
       }
     } catch (error) {
       console.error('Data fetch failed', error);
-      // Handle error in a more user-friendly way, e.g., display an error message in the UI.
+      
     }
   };
 
@@ -40,7 +40,7 @@ function DashboardAuthor() {
         }
       } catch (error) {
         console.error('Data removal failed', error);
-        // Handle error in a more user-friendly way, e.g., display an error message in the UI.
+       
       }
     }
   };
